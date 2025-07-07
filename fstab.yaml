@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p159707-e1708143.adobeaemcloud.com/bin/franklin.delivery/wedemosaem/esimflag/main"
+    url: "https://author-p159707-e1708143.adobeaemcloud.com/bin/franklin.delivery/wedemosaem/sims/main"
     type: "markup"
     suffix: ".html"
