@@ -1,0 +1,65 @@
+[
+  {
+    "id": "main",
+    "components": [
+      "section"
+    ]
+  },
+  {
+    "id": "section",
+    "components": [
+      "ficha",
+      "content-fragment",
+      "text",
+      "image",
+      "button",
+      "title",
+      "hero",
+      "cards",
+      "columns",
+      "fragment",
+      "titlecustom",
+      "basicbanner",
+      "rowscols",
+      "customcard",
+      "countrycard",
+      "countryplan"
+    ]
+  },
+
+  {
+    "id": "cards",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "columns",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title",
+      "customcard",
+      "countrycard"
+    ]
+  },
+  {
+    "id": "col",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title",
+      "customcard",
+      "countrycard"
+    ]
+  }
+  
+]

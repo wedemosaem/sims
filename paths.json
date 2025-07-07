@@ -1,0 +1,10 @@
+{
+  "mappings": [
+    "/content/esimflag/:/",
+    "/content/esimflag/configuration:/.helix/config.json",
+    "/content/esimflag/metadata:/metadata.json"
+  ],
+  "includes": [
+    "/content/esimflag/"
+  ]
+}

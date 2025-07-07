@@ -1,0 +1,215 @@
+/* 1) Bleed full viewport width (break out of any parent max-width) */
+.section.ficha-container {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  background-color: #000;
+  color: #FFF;
+  padding: 0 !important;
+}
+
+/* 2) Inner flex container */
+.ficha-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 3) Columns */
+.ficha-column {
+  box-sizing: border-box;
+  padding: 20px;
+  min-width: 0; /* allow shrinking */
+}
+
+/* 4) 20/80 split */
+.ficha-column-left {
+  justify-content: center;
+  text-align: center; /* center any inline text */
+  flex: 1 1 25%;
+}
+
+.ficha-column-right {
+  flex: 2 1 75%;
+}
+
+/* 5) Wrap long text */
+.ficha-column p,
+.ficha-column h4 {
+  overflow-wrap: break-word;
+  
+  /* removed deprecated word-break */
+  hyphens: auto;
+}
+
+/* paragraph color */
+.ficha-column p {
+  color: #858585;
+}
+
+/* 6) Mobile: stack columns */
+@media (width <= 768px) {
+  .ficha-column-left,
+  .ficha-column-right {
+    flex: 1 1 100%;
+  }
+}
+
+.ficha-rating-text {
+  margin-top: 12px;
+  color: #FFF; 
+}
+
+/* Layout for the rating content */
+.rating-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Base star-container (generic rules go first) */
+.stars {
+  position: relative;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  float: left;
+  height: 22px;
+}
+
+/* Empty-star placeholders */
+.stars > span {
+  background-image: url("https://movistarplus.es/assets/images/movistar-plus/star-sprite-white.png");
+  background-position: 0 0;
+  padding: 0;
+  width: 22px;
+  height: 21px;
+  margin: 0 1px;
+  text-indent: -9999px;
+  display: block;
+  float: right;
+  background-size: 22px auto;
+  opacity: 0.3;
+}
+
+/* Links as stars */
+.stars a,
+.stars div {
+  background-image: url("https://movistarplus.es/assets/images/star.svg");
+  background-position: 0 0;
+  padding: 0;
+  width: 22px;
+  height: 21px;
+  margin: 0 1px;
+  text-indent: -9999px;
+  display: block;
+  float: right;
+  background-size: 22px auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.3;
+  background-repeat: no-repeat;
+}
+
+/* Filled stars */
+.stars a.fill,
+.stars div.fill {
+  filter: none;
+  opacity: 1;
+}
+
+/* 1️⃣ Move these simple hover rules above the sibling‐selector block */
+.stars a.vote-1:hover { text-indent: 126px; }
+.stars a.vote-2:hover { text-indent: 103px; }
+.stars a.vote-3:hover { text-indent: 79px; }
+.stars a.vote-4:hover { text-indent: 55px; }
+.stars a.vote-5:hover { text-indent: 29px; }
+
+/* 2️⃣ Now the more specific group that depends on them */
+.stars a.fill:hover,
+.stars a.vote-2:hover ~ a.vote-1,
+.stars a.vote-3:hover ~ a.vote-1,
+.stars a.vote-3:hover ~ a.vote-2,
+.stars a.vote-4:hover ~ a.vote-1,
+.stars a.vote-4:hover ~ a.vote-2,
+.stars a.vote-4:hover ~ a.vote-3,
+.stars a.vote-5:hover ~ a.vote-1,
+.stars a.vote-5:hover ~ a.vote-2,
+.stars a.vote-5:hover ~ a.vote-3,
+.stars a.vote-5:hover ~ a.vote-4,
+.stars a:hover {
+  background-position: center;
+  opacity: 1;
+  filter: brightness(0) invert(1);
+}
+
+/* Invisible numeric label (if used) */
+.stars p {
+  position: absolute;
+  left: 125px;
+  width: 100%;
+}
+
+/* Superscript numbers next to stars */
+.stars span {
+  opacity: 0.4;
+  line-height: 1.6em;
+  vertical-align: super;
+  position: relative;
+  top: -5px;
+  left: 4px;
+}
+
+/* Show/hide the overall rating number */
+.stars:hover ~ .rating-value .rating { opacity: 0; }
+.stars.stars-votes ~ .rating-value .rating { opacity: 1; }
+
+/* Container holding the stars and value */
+.ee .ee-stars {
+  margin: 10px 20px;
+  overflow: hidden;
+  min-width: 273px;
+}
+
+/* Stars bar label color and spacing */
+.ee .ee-stars .stars {
+  margin-top: 5px;
+  color: #fff;
+}
+
+/* “733 votos” block styling */
+.ee .ee-stars .rating-content .rating-value {
+  padding: 7px 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  float: left;
+}
+
+.ee .ee-stars .rating-content .rating-value span {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 3px;
+  line-height: 1em;
+}
+
+.ee .ee-stars .rating-content .rating-value .rating {
+  font-size: 1.25rem;
+}
+
+.ee .ee-stars .rating-content .rating-value .rating-c {
+  padding: 0 0 0 16px;
+  position: relative;
+}
+
+.ee .ee-stars .rating-content .rating-value .rating-c::after {
+  content: "-";
+  position: absolute;
+  top: 0;
+  left: 4px;
+  font-size: 0.9375rem;
+}
